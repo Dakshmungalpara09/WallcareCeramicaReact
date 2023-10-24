@@ -1,4 +1,4 @@
-const portno = 'http://172.16.101.22:6060';
+const portno = 'https://wellcareceramica-production.up.railway.app';
 
 function GetPortno(){
     return portno;

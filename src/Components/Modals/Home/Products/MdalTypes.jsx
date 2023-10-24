@@ -16,7 +16,7 @@ function MdalTypes() {
     setCatagories(response);
   }
 
-  const FetchTypes = async () => {
+  const FetchTypes = async (CatagoryID) => {
     const response = await GetApi(GlobalVar + "/type/get");
     console.log('====================================');
     console.log(response);
