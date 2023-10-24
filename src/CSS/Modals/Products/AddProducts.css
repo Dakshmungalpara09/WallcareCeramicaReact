@@ -5,6 +5,7 @@
     font-size: 20px;
     font-weight: 500;
 }
+
 .AddProductsModalTitle
 {
     font-family: 'Trebuchet MS';
@@ -12,6 +13,7 @@
     font-size: 30px;
     font-weight: 800;
 }
+
 .inputTagAddProducts{
     height: 40px;
     border: none;
@@ -21,10 +23,12 @@
     font-size: 20px;
     font-family: 'Trebuchet MS';
 }
+
 .inputTagAddProducts:focus{
     outline: none;
     background-color: rgb(236, 236, 236);
 }
+
 .SelectAddProducts{
     height: 40px;
     width: 100%;
@@ -34,14 +38,17 @@
     font-family: 'Trebuchet MS';
     padding: 3px;
 }
+
 .select:focus{
     outline: none;
 }
+
 .fileSelectAddProducts
 {
     font-size: 20px;
     font-family: 'Trebuchet MS';
 }
+
 .buttonAddProducts
 {
     background-color: black;
@@ -52,6 +59,7 @@
     font-family: 'Trebuchet MS';
     transition: all ease-in-out 0.3s;
 }
+
 .buttonAddProducts:hover{
     background-color: white;
     color: black;
