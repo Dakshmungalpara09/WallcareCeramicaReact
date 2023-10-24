@@ -24,7 +24,7 @@ function Home() {
   )
 
   const [load, setLoad] = useState(false);
-  const TomeForAnimation = 4000;
+  const TomeForAnimation = 2000;
   const [animationImage1, setanimationImage1] = useState("Image1-homediv1");
   const [animationImage2, setanimationImage2] = useState("Image1-homediv2");
   const [animationImage3, setanimationImage3] = useState("Image1-homediv3");
