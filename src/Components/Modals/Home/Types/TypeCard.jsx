@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { GetApi } from "../../../AXIOS/ApiCalls";
 import GetPortno from "../../../GlobalVar";
+import { AiOutlineClose } from "react-icons/ai";
 
-function TypeCard({ CatagoryID }) {
+function TypeCard({ rerender,CatagoryID,setEditType }) {
   const [Types, setTypes] = useState([]);
   const GlobalVar = GetPortno();
 
@@ -17,6 +18,10 @@ function TypeCard({ CatagoryID }) {
   useEffect(()=>{
     fetchTypes();
   },[])
+
+  useEffect(()=>{
+    fetchTypes();
+  },[rerender])
 
   return (
     <div>
@@ -42,7 +47,9 @@ function TypeCard({ CatagoryID }) {
             </p>
             <button onClick={()=>{
                 console.log(Type);
-            }} type="button" className="ms-3 btn-close"></button>
+                setEditType(Type)
+            }} data-bs-toggle="modal"
+            data-bs-target="#DeleteTypes" className="ms-3 btn"><AiOutlineClose/></button>
           </div>
         </>
         )
