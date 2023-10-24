@@ -166,7 +166,6 @@ margin-top: 120px;
     width: 300px; /* Set the desired width of your container */
     height: 200px; /* Set the desired height of your container */
     position: relative;
-    overflow: hidden;
 }
 .Image1-homediv2-animation1
 {
@@ -238,6 +237,7 @@ margin-top: 120px;
 
 .image1-home2
 {
+    
   /* margin-top: 180px; */
   width: 100%;
   height: auto;
@@ -258,7 +258,6 @@ margin-top: 120px;
     width: 300px; /* Set the desired width of your container */
     height: 200px; /* Set the desired height of your container */
     position: relative;
-    overflow: hidden;
 }
 .Image1-homediv3-animation1
 {

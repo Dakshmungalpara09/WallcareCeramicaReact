@@ -106,18 +106,18 @@ function Home() {
         setTimeout(typeEffect, 1200);
       }
     };
-    // animationImageSlider1();
-    // animationImageSlider2();
-    // animationImageSlider3();
-    // setInterval(() => {
-    //   animationImageSlider1();
-    // }, TomeForAnimation * 3);
-    // setInterval(() => {
-    //   animationImageSlider2();
-    // }, TomeForAnimation * 3);
-    // setInterval(() => {
-    //   animationImageSlider3();
-    // }, TomeForAnimation * 3);
+    animationImageSlider1();
+    animationImageSlider2();
+    animationImageSlider3();
+    setInterval(() => {
+      animationImageSlider1();
+    }, TomeForAnimation * 3);
+    setInterval(() => {
+      animationImageSlider2();
+    }, TomeForAnimation * 3);
+    setInterval(() => {
+      animationImageSlider3();
+    }, TomeForAnimation * 3);
     typeEffect();
   }, []);
 
