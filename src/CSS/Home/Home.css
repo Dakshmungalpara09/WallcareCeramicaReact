@@ -1,0 +1,767 @@
+#childDiv1{
+    /* margin-right: 70px; */
+    /* height: 45rem; */
+    margin-top: 50px;
+    position: relative;
+}
+#mainDivHomeColor
+{
+    background-image: url('../../Images/Background9.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#mainDivHome{
+    margin: 0px;
+    overflow: hidden;
+    height: max-content;
+    padding-top: 230px;
+    padding-bottom: 200px;
+    background-color: #30373fdf;
+    
+    z-index: -1;
+    /* height: 100%; */
+    /* padding-bottom: 1000px; */
+    /* margin-top: 30px; */
+    display: flex;
+    width:100%;
+
+    /* height: 45rem; */
+}
+
+#mainLogoHome
+{
+    height: 20rem;
+    object-fit: contain;
+}
+
+#childDiv1{
+    /* padding-right: 300px; */
+display: flex;
+flex-direction: column;
+height: 25rem;
+width: 50%;
+margin-top: 120px;
+-webkit-filter: drop-shadow(0px 16px 10px rgba(0, 0, 0, 0.6));
+-moz-filter: drop-shadow(0px 16px 10px rgba(0, 0, 0, 0.6));
+-ms-filter: drop-shadow(0px 16px 10px rgba(0, 0, 0, 0.6)); 
+-o-filter: drop-shadow(0px 16px 10px rgba(0, 0, 0, 0.6));
+ filter: drop-shadow(0px 16px 10px rgba(0, 0, 0, 0.6)); 
+ transition: all 0.1s ease-out;
+}
+
+.childDiv2load
+{
+    transition: all;
+    margin-top: 50px;
+    margin-left: 200px;
+    opacity: 1;
+    /* transform: scale(1); */
+    /* transition: all 2s ease-in; */
+    padding-left: 0px;
+    width: 100%;
+}
+
+
+.Home-Detail-div1{
+    top: 20rem;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 60px;
+}
+
+.wellcare
+{
+    font-weight: 900;
+    font-family: 'Franklin Gothic Medium';
+    color: #7ccae9;
+    margin-right: 15px;
+}
+.ceramica
+{
+    color: rgb(0, 0, 74);
+}
+.first-childDiv2
+{
+    margin-top: 150px;
+}
+
+.welcome-Home
+{
+    color: #e6af5d ;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.To-Home
+{
+    color: white;
+    font-weight: 550;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: end;
+    padding-bottom: 15px;
+    font-size: 30px;
+}
+
+.YouLookingFor-Home
+{
+    color: #abadb1 ;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 700;
+    margin-right: 10px; 
+}
+
+.Shop-now-home
+{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #e6af5d;
+    font-size: 30px;
+    border: 3px solid #e6af5d;
+    background-color: #7ccae900;
+    transition: all 0.3s ease-in-out;
+    border-radius: 7px;
+
+    &:hover{
+        color: #ffffff;
+    background-color: #e6af5d;
+    }
+}
+
+.TagLine-Home{
+    color: white;
+    font-weight: 550;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: end;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+#childDiv3
+{
+    /* margin-top: 0px; */
+    /* background-color: #30373fdf; */
+}
+
+.Image1-homediv2
+{
+    opacity: 1;
+    z-index: 4;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+.Image1-homediv2-animation1
+{
+    opacity: 1;
+    z-index: 4;
+    transition: all 0.5s ease-in-out;
+    transform: translate(-320px,0) scale(1.5);
+    z-index: 1;
+    /* transform: ; */
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+
+.Image1-homediv2-animation2
+{
+    opacity: 0;
+    z-index: 4;
+    /* transition: all 0.5s ease-in-out; */
+    transform: translate(300px,0) scale(1);
+    z-index: 0;
+    z-index: 0;
+    /* transform: ; */
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+.Image1-homediv2-animation3
+{
+    opacity: 1;
+    z-index: 4;
+    transition: all 0.5s ease-in-out;
+    transform: translate(240px,0) scale(1);
+    z-index: 0;
+    z-index: 0;
+    /* transform: ; */
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+.Image1-homediv2-animation4
+{
+    opacity: 1;
+    z-index: 4;
+    transition: all 0.5s ease-in-out;
+    transform: translate(0,0) scale(1);
+    z-index: 1;
+    /* transform: ; */
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+
+.image1-home2
+{
+  /* margin-top: 180px; */
+  width: 100%;
+  height: auto;
+  position: absolute;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  /* Modify the polygon values to create your desired parallelogram shape */
+  object-fit: cover;
+
+}
+.Image1-homediv3
+{
+    opacity: 1;
+    z-index: 4;
+    transition: all 0.5s ease-in-out;
+    margin-left: -60px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+.Image1-homediv3-animation1
+{
+    opacity: 1;
+    z-index: 4;
+    transition: all 0.5s ease-in-out;
+    transform: translate(-240px,0);
+    margin-left: -60px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+  
+}
+.Image1-homediv3-animation2
+{
+    opacity: 1;
+    z-index: 5;
+    transition: all 0.5s ease-in-out;
+    transform: translate(-560px,0) scale(1.5);
+    margin-left: -60px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+.Image1-homediv3-animation3
+{
+    z-index: 4;
+    opacity: 0;
+    /* transition: all 0.5s ease-in-out; */
+    transform: translate(40px,0) scale(1);
+    margin-left: -60px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+.Image1-homediv3-animation4
+{
+    z-index: 4;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    transform: translate(0,0) scale(1);
+    margin-left: -60px;
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 200px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+
+
+.image1-home3
+{
+  /* margin-top: 180px; */
+  width: 100%;
+  height: auto;
+  position: absolute;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  /* Modify the polygon values to create your desired parallelogram shape */
+  object-fit: cover;
+
+}
+
+.Image1-homediv1
+{
+    opacity: 1;
+    z-index: 4;
+    transform: scale(1.5) skew(-10deg);   
+    display: flex;
+    align-items: center;
+    width: 300px; /* Set the desired width of your container */
+    height: 440px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    
+}
+
+.Image1-homediv1-animation1
+{
+    transform: skew(-20deg);
+    opacity: 0;
+    z-index: 4;
+    transform: translate(600px,0) skew(-10deg);   
+    /* z-index: 0; */
+    display: flex;
+    align-items: center;
+    /* transform: scale(1.7); */
+    width: 300px; /* Set the desired width of your container */
+    height: 440px;/* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+
+.Image1-homediv1-animation2
+{
+    transform: skew(-20deg);
+    opacity: 1;
+    z-index: 4;
+    transform: translate(560px,0) skew(-10deg);   
+    /* z-index: 0; */
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    /* transform: scale(1.7); */
+    width: 300px; /* Set the desired width of your container */
+    height: 440px;/* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+}
+
+.Image1-homediv1-animation3
+{
+    transform: skew(-20deg);
+    opacity: 1;
+    z-index: 4;
+    transform: translate(320px,0) skew(-10deg);   
+    /* z-index: 1; */
+    display: flex;
+    align-items: center;
+    /* transform: scale(1.7); */
+    width: 300px; /* Set the desired width of your container */
+    height: 440px; /* Set the desired height of your container */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    
+}
+.Image1-homediv1-animation4
+{
+    transform: skew(-20deg);
+    opacity: 1;
+    z-index: 4;
+    transform: translate(0,0) skew(-10deg) scale(1.5);   
+    display: flex;
+    align-items: center;
+    width: 300px; 
+    height: 440px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.image1-home1
+{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  object-fit: cover;
+  transform: skew(10deg)
+  
+}
+
+/* Importing Google font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+h1 span {
+    color: #ffffff;
+    position: relative;
+}
+
+h1 span::before {
+    content: "";
+    height: 30px;
+    width: 4px;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    background: #e6af5d;
+    transform: translateY(-45%);
+    animation: blink 0.7s infinite;
+}
+
+h1 span.stop-blinking::before {
+    animation: none;
+}
+#childDiv2
+    {
+        margin-top: -20px;
+        margin-left: 50px;
+    }
+
+    #image-home{
+        width: auto;
+        display: flex;
+    }
+
+@keyframes blink {
+    50% { opacity: 0 }
+}
+#Home2Begin
+{
+    background-color: #e6e6e6;
+    margin: 0px;
+    padding: 0px;
+    overflow: visible;
+}
+#childDiv3
+{
+    /* width: 100%; */
+    padding: 50px;
+}
+
+
+@media screen and (max-width: 1800px) {
+    #childDiv3
+    {
+        /* transform: scale(0.85); */
+        /* padding: 0px; */
+        display: flex;
+        /* width: 40rem; */
+        justify-content: end;
+        margin-top: -70px;
+        margin-right: -300px;
+    }
+    #image-home{
+        transform: scale(0.85);
+    }
+    #childDiv2
+    {
+        transform: scale(0.9);
+        margin-right: 0px;
+        /* margin-left: -50px; */
+        margin-top: -20px;
+        width: 1rem
+    }
+    .content-Home
+    {
+        transform: scale(0.9);
+    }
+    .YouLookingFor-Home
+    {
+        display: inline;
+    }
+    h1 span
+    {
+        height: 40px;
+        margin-left: -10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    } 
+    h1 span::before 
+    {
+        display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 1599px) {
+    #mainDivHome
+    {
+        padding-top: 150px;
+    }
+    #childDiv3
+    {
+        /* transform: scale(0.8); */
+        display: flex;
+        padding: 0px;
+        justify-content: end;
+        margin-top: 1px
+    }
+    #image-home{
+        transform: scale(0.8);
+    }
+    #childDiv2
+    {
+        margin-top: -20px;
+        transform: scale(0.9);
+        margin-right: 0px;
+        /* margin-left: -10px; */
+        width: 1rem
+    }
+    .content-Home
+    {
+        /* transform: scale(); */
+    }
+    .YouLookingFor-Home
+    {
+        display: inline;
+    }
+    h1 span
+    {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    } 
+    h1 span::before 
+    {
+        display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 1390px) {
+    #childDiv3
+    {
+        /* transform: scale(0.8); */
+        display: flex;
+        padding: 0px;
+        justify-content: end;
+    }
+    #image-home{
+        transform: scale(0.65);
+        margin-left: -200px;
+        margin-right: -100px;
+    }
+    #childDiv2
+    {
+        margin-top: -30px;
+        transform: scale(0.9);
+        margin-right: 0px;
+        /* margin-left: -10px; */
+        /* width: 1rem */
+        width: 500px;
+    }
+    .content-Home
+    {
+        /* transform: scale(); */
+    }
+    .YouLookingFor-Home
+    {
+        display: inline;
+    }
+    h1 span
+    {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    } 
+    h1 span::before 
+    {
+        display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 1180px) {
+    #childDiv3
+    {
+        /* transform: scale(0.8); */
+        display: flex;
+        padding: 0px;
+        justify-content: end;
+    }
+    #image-home{
+        transform: scale(0.6);
+        margin-left: -200px;
+        margin-right: -130px;
+    }
+    #childDiv2
+    {
+        margin-top: -30px;
+        transform: scale(0.8);
+        margin-right: 0px;
+        margin-left: -20px;
+        /* width: 1rem */
+        width: 500px;
+    }
+    .content-Home
+    {
+        /* transform: scale(); */
+    }
+    .YouLookingFor-Home
+    {
+        display: inline;
+    }
+    h1 span
+    {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    } 
+    h1 span::before 
+    {
+        display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 985px) {
+    #mainDivHome
+    {
+        padding-top: 200px;
+        padding-bottom: 150px;
+    }
+    #childDiv3
+    {
+        /* transform: scale(0.8); */
+        display: flex;
+        padding: 0px;
+        justify-content: end;
+    }
+    #image-home{
+        display: none;
+    }
+    #childDiv2
+    {
+        display: flex;
+        justify-content: center;
+        margin-top: -150px;
+        transform: scale(0.8);
+        margin-right: 0px;
+        margin-left: -20px;
+        /* width: 1rem */
+        width: 500px;
+    }
+    .content-Home
+    {
+        width: 600px;
+    }
+    .YouLookingFor-Home
+    {
+        display: inline;
+    }
+    h1 span
+    {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    } 
+    h1 span::before 
+    {
+        display: none;
+    }
+
+  }
+  @media screen and (max-width: 475px) {
+    
+    #childDiv3
+    {
+        /* transform: scale(0.8); */
+        display: flex;
+        padding: 0px;
+        justify-content: end;
+    }
+    #image-home{
+        display: none;
+    }
+    #childDiv2
+    {
+        display: flex;
+        justify-content: center;
+        /* transform: scale(0.6); */
+        width: max-content;
+        margin-right: 0px;
+        margin-left: -20px;
+        /* width: 1rem */
+        width: 500px;
+    }
+    .content-Home
+    {
+        width: fit-content;
+    }
+    .YouLookingFor-Home
+    {
+        display: inline;
+        font-size: 30px;
+    }
+    h1 span
+    {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    } 
+    h1 span::before 
+    {
+        display: none;
+    }
+
+  }

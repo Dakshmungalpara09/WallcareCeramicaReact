@@ -1,0 +1,17 @@
+.product-list {
+   
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow up to 4 cards per row */
+    gap: 20px;
+    padding: 20px;
+  }
+  .product-list-main
+  {
+    margin-top: 5rem;
+  }
+
+  body
+  {
+    /* background: rgba(220, 220, 220, 0.751); */
+  }
