@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { GetApi } from "../../../AXIOS/ApiCalls";
 import GetPortno from "../../../GlobalVar";
+import TypeCard from "../Types/TypeCard";
 
 function MdalTypes() {
   const GlobalVar = GetPortno();
-  const [Types, setTypes] = useState([]);
   const [Catagory, setCatagories] = useState([]);
 
   const FetchCatagories = async () => {
@@ -15,34 +15,9 @@ function MdalTypes() {
     setCatagories(response);
   };
 
-  const FetchTypes = async (CatagoryID) => {
-    const response = await GetApi(
-      GlobalVar + "/type/get?categorySysid=" + CatagoryID
-    );
-    console.log("====================================");
-    console.log(response);
-    console.log("====================================");
-    return response;
-  };
-
   useEffect(() => {
     FetchCatagories();
   }, []);
-
-  useEffect(() => {
-    const temp = [];
-    const createcustomarray = async () => {
-      await Catagory.map(async (item) => {
-        const response = await FetchTypes(item.categorySysid);
-        temp.push(response);
-        console.log("Custom Array =======================");
-        console.log(temp);
-        console.log("====================================");
-      });
-      setTypes(temp);
-    };
-    createcustomarray();
-  }, [Catagory]);
 
   return (
     <>
@@ -65,37 +40,19 @@ function MdalTypes() {
                 ></button>
               </div>
               <div className=" m-4">
-                {Catagory.map((Catagory, index) => {
-                  <div>{Catagory.name}</div>;
-                  Types.map((Type) => {
+                {
+                  Catagory.map((Catagory) => {
                     return (
                       <>
-                        <div
-                          style={{
-                            width: "100%",
-                            border: "2px solid black",
-                            borderRadius: "10px",
-                          }}
-                          className="d-flex m-2 align-items-center p-2"
-                        >
-                          <p
-                            style={{
-                              width: "90%",
-                              marginBottom: "0px",
-                            }}
-                            className="d-flex align-items-center"
-                          >
-                            {Type.name}
-                          </p>
-                          <button
-                            type="button"
-                            className="ms-3 btn-close"
-                          ></button>
-                        </div>
+                      <div>
+                      {Catagory.name}
+                      </div>
+                      <TypeCard CatagoryID={Catagory.categorySysid}/>
                       </>
                     );
-                  });
-                })}
+                })
+              }
+                
               </div>
               <div>
                 <button type="button" class="btn btn-primary">

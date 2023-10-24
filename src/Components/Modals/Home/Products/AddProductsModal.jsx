@@ -1,3 +1,4 @@
+import '../../../../CSS/Modals/Products/AddProducts.css'
 import React, { useEffect, useState } from "react";
 import GetPortno from "../../../GlobalVar";
 import {PostApi} from '../../../AXIOS/ApiCalls'
@@ -136,12 +137,12 @@ function AddProductsModal() {
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-body">
               <div className="d-flex w-100">
-                <h5 className="text-dark w-50">Add Product</h5>
-                <div className="d-flex w-50 justify-content-end">
+                <h5 className="text-dark d-flex justify-content-center AddProductsModalTitle">Add Product</h5>
+                <div className="d-flex align-items-center">
                   <button
                   id="ModalCloseAddProoduct"
                     type="button"
@@ -151,36 +152,48 @@ function AddProductsModal() {
                   ></button>
                 </div>
               </div>
-              <div className="mt-4">
+              <div className="m-4">
                 <form onSubmit={AddProductSubmit}  action="#">
                   <div className="d-flex w-100">
-                    <div className="w-50 d-flex align-items-center">
-                      Product Name :
+                    <div className="w-50 d-flex align-items-center inputLableAddProducts">
+                      Product Name 
                     </div>
                     <div className="w-50">
                       <input
                         name="name"
                         onChange={onChangeAddProducts}
                         type="text"
-                        className="form-control w-100"
-                        aria-describedby="basic-addon1"
+                        className="w-100 inputTagAddProducts"
                         required
                       />
                     </div>
                   </div>
                   <div className="mt-2 d-flex w-100">
-                    <div className="w-50 d-flex align-items-center">
-                      Catagories :
+                    <div className="w-50 d-flex align-items-center inputLableAddProducts">
+                      Product Size 
+                    </div>
+                    <div className="w-50">
+                      <input
+                        name="size"
+                        onChange={onChangeAddProducts}
+                        type="text"
+                        className="w-100 inputTagAddProducts"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-2 d-flex w-100">
+                    <div className="w-50 d-flex align-items-center inputLableAddProducts">
+                      Catagories 
                     </div>
                     <div className="w-50">
                       <select
                         name="categorySysid"
                         onChange={onChangeAddProducts}
-                        className="form-select"
-                        aria-label="Default select example"
+                        className="SelectAddProducts"
                         required
                       >
-                        <option selected>Select Catagory</option>
+                        <option selected>Select</option>
                         {catagory.map((item) => {
                           return(
                           <option value={item.categorySysid}>
@@ -192,18 +205,17 @@ function AddProductsModal() {
                     </div>
                   </div>
                   <div className="mt-2 d-flex w-100">
-                    <div className="w-50 d-flex align-items-center">
-                      type :
+                    <div className="w-50 d-flex align-items-center inputLableAddProducts">
+                      type 
                     </div>
                     <div className="w-50">
                       <select
                         name="typeSysid"
                         onChange={onChangeAddProducts}
-                        className="form-select"
-                        aria-label="Default select example"
+                        className="SelectAddProducts"
                         required
                       >
-                        <option selected>Select Catagory</option>
+                        <option selected>Select</option>
                         {Type.map((item) => {
                           return(
                           <option value={item.categorySysid}>
@@ -215,23 +227,8 @@ function AddProductsModal() {
                     </div>
                   </div>
                   <div className="mt-2 d-flex w-100">
-                    <div className="w-50 d-flex align-items-center">
-                      Product Size :
-                    </div>
-                    <div className="w-50">
-                      <input
-                        name="size"
-                        onChange={onChangeAddProducts}
-                        type="text"
-                        className="form-control w-100"
-                        aria-describedby="basic-addon1"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-2 d-flex w-100">
-                    <div className="w-50 d-flex align-items-center">
-                      Image :
+                    <div className="w-50 d-flex align-items-center inputLableAddProducts">
+                      Image 
                     </div>
                     <div className="w-50">
                       <input
@@ -239,7 +236,7 @@ function AddProductsModal() {
                         id="newImagesForm"
                         onChange={onChangeAddProductsImage}
                         type="file"
-                        className="form-control w-100"
+                        className="form-control w-100 fileSelectAddProducts"
                         aria-describedby="basic-addon1"
                         required
                       />
@@ -259,9 +256,9 @@ function AddProductsModal() {
                       />
                     </div>
                   </div> */}
-                  <div className="mt-4 d-flex w-100 justify-content-end">
-                    <input id="reSetAddProducts" class="btn btn-primary me-3" type="reset" value="Reset"/>
-                    <input value="Add Product" type="submit" class="btn btn-primary"/>
+                  <div className="mt-5 d-flex w-100 justify-content-center">
+                    <input id="reSetAddProducts" class="btn btn-primary me-3 w-50 buttonAddProducts" type="reset" value="Reset"/>
+                    <input value="Add Product" type="submit" class="btn btn-primary w-50 buttonAddProducts"/>
                   </div>
                 </form>
               </div>
