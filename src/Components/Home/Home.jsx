@@ -172,14 +172,14 @@ function Home() {
             <img className="image1-home1" loading="lazy" src={image} alt="" />
           </div>
           <div className={animationImage2}>
-            <img className="image1-home2" loading="lazy" src={image2} alt="" />
+            <img className="image1-home2" loading="lazy" src={image} alt="" />
           </div>
           <div className={animationImage3}>
             <img
             loading="lazy"
               id="image3-home"
               className="image1-home3"
-              src={image3}
+              src={image}
               alt=""
             />
           </div>
