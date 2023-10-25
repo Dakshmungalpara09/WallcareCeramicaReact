@@ -15,6 +15,7 @@ function Products() {
   const ProductList = useSelector((state) => state.data);
   const lastpage = useSelector((state) => state.lastPage);
   const [editProduct, seteditProduct] = useState({});
+  const [Loading,setLoading] = useState(true)
 
   useEffect(() => {
     console.log(editProduct);
@@ -27,7 +28,7 @@ function Products() {
 
   return (
     <>
-      <AddProductsModal />
+      <AddProductsModal Loading={Loading} setLoading={setLoading}/>
       <ModalTypes/>
       <EditeProducts product={editProduct} />
       <DeleteProducts product={editProduct} />
@@ -38,6 +39,9 @@ function Products() {
             className="mt-4 me-2 btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
+            onClick={()=>{
+              setLoading(false)
+            }}
           >
             Add Product
           </button>
