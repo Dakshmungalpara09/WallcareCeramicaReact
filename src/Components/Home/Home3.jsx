@@ -27,7 +27,7 @@ function Home3() {
         <img loading="lazy" id='image1Home3' src="https://i.pinimg.com/originals/09/bb/b8/09bbb8e14853186934c28b3b224e1de0.jpg" alt="" />
       </motion.div>
       <div id='ChildDivHome32'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima repellat dolorum, commodi explicabo sequi quasi ipsam perferendis cum perspiciatis
+      Wellcare Ceramica is your one-stop destination for ceramic products that blend innovative design with timeless beauty, offering a range of choices as diverse as your imagination.
       </div>
       <motion.div
       variants={{

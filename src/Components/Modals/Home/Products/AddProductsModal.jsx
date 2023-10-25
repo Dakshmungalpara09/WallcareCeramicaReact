@@ -4,9 +4,27 @@ import GetPortno from "../../../GlobalVar";
 import {PostApi} from '../../../AXIOS/ApiCalls'
 import { useDispatch, useSelector } from "react-redux";
 import { FetchProductsList } from "../../../Redux/ProductSlices";
+import Resizer from "react-image-file-resizer";
 import swal from "sweetalert";
 
 function AddProductsModal() {
+
+  const resizeFile = (file) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      300,
+      300,
+      "JPEG",
+      100,
+      0,
+      (uri) => {
+        console.log('this is uri',uri);
+        resolve(uri);
+      },
+      "base64"
+    );
+  });
 
   //Variable Declaration
 
@@ -42,9 +60,12 @@ function AddProductsModal() {
     
   };
 
-  const onChangeAddProductsImage = (event) => {
+  const onChangeAddProductsImage = async (event) => {
     // console.log(element.target.files);
     // setImage(element.target.files[0])
+    const file = event.target.files[0];
+    const imagere = await resizeFile(file);
+    console.log(imagere);
     if (event.target.files[0]) {
       if (
         event.target.files[0].type === "image/png" ||
@@ -54,11 +75,14 @@ function AddProductsModal() {
         reader.onload = (r) => {
           setImage({
             ...image,
-            imagePreview: r.target.result,
-            image: event.target.files[0],
+            imagePreview: imagere,
+            image: imagere,
           });
         };
         reader.readAsDataURL(event.target.files[0]);
+        console.log(
+          image
+        );
       } else {
         setImage({
           ...image,
@@ -93,6 +117,7 @@ function AddProductsModal() {
                   icon: "success",
                   title: "Product Added"
                 });
+                dispatch(FetchProductsList());
             } else {
                 swal({
                   icon: "error",
@@ -103,7 +128,6 @@ function AddProductsModal() {
         })
         .catch(error => console.log(error.message));
     // AddProduct(formData);
-    dispatch(FetchProductsList());
     setFromData({
       "imageId": null,
       "pdfId": null

@@ -158,7 +158,7 @@ function Home() {
                 </p>
               </div>
               <div className="d-flex mt-5">
-                <Link to="/">
+                <Link to="/Products">
                   <button className="Shop-now-home">Shop Now</button>
                 </Link>
               </div>

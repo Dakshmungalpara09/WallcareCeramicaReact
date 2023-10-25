@@ -1,6 +1,6 @@
 .product-list {
    
-    background-color: rgb(255, 255, 255);
+    background-color: #e6e4e4;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow up to 4 cards per row */
     gap: 20px;
