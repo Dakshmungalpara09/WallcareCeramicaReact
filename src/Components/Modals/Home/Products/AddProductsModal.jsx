@@ -5,7 +5,9 @@ import {PostApi} from '../../../AXIOS/ApiCalls'
 import { useDispatch, useSelector } from "react-redux";
 import { FetchProductsList } from "../../../Redux/ProductSlices";
 import Resizer from "react-image-file-resizer";
+import { imageFileResizer } from 'react-image-file-resizer';
 import swal from "sweetalert";
+import axios from 'axios';
 
 function AddProductsModal() {
 
@@ -61,40 +63,110 @@ function AddProductsModal() {
   };
 
   const onChangeAddProductsImage = async (event) => {
-    // console.log(element.target.files);
-    // setImage(element.target.files[0])
-    const file = event.target.files[0];
-    const imagere = await resizeFile(file);
-    console.log(imagere);
-    if (event.target.files[0]) {
-      if (
-        event.target.files[0].type === "image/png" ||
-        event.target.files[0].type === "image/jpeg"
-      ) {
+//     const file = event.target.files[0];
+//     const imagere = await resizeFile(file);
+//     console.log(imagere);
+//     if (event.target.files[0]) {
+//       if (
+//         event.target.files[0].type === "image/png" ||
+//         event.target.files[0].type === "image/jpeg"
+//       ) {
+//         const reader = new FileReader();
+//         reader.onload = (r) => {
+//           setImage({
+//             ...image,
+//             imagePreview: imagere,
+//             image: event.target.files[0],
+//           });
+//         };
+//         reader.readAsDataURL(event.target.files[0]);
+//         console.log(
+//           image
+//         );
+//       } else {
+//         setImage({
+//           ...image,
+//           image: undefined,
+//           imagePreview: undefined,
+//         });
+//       }
+//     }
+//     console.log(image);
+
+const file = event.target.files[0];
+
+    if (file) {
+      try {
+        // Create a function to resize the image (you can use HTML5 Canvas)
+        const resizedImage = await resizeImage(file);
+
         const reader = new FileReader();
         reader.onload = (r) => {
           setImage({
             ...image,
-            imagePreview: imagere,
-            image: imagere,
+            imagePreview: r.target.result,
+            image: resizedImage,
           });
         };
-        reader.readAsDataURL(event.target.files[0]);
+        reader.readAsDataURL(resizedImage);
         console.log(
           image
         );
-      } else {
-        setImage({
-          ...image,
-          image: undefined,
-          imagePreview: undefined,
-        });
-      }
-    }
-    console.log(image);
+        
+        // Send the resized image to your API
+        // await sendImageToAPI(resizedImage);
+
+      } catch (error) {
+        console.error('Error processing or sending the image:', error);
+      }
+    }
   }
 
-  //addProduct api call
+  //resizing image
+
+  const resizeImage = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const maxWidth = 800;
+          const maxHeight = 600;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxWidth) {
+            height *= maxWidth / width;
+            width = maxWidth;
+          }
+
+          if (height > maxHeight) {
+            width *= maxHeight / height;
+            height = maxHeight;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob((blob) => {
+            resolve(new File([blob], file.name, { type: 'image/jpeg', lastModified: Date.now() }));
+          }, 'image/jpeg', 0.8);
+        };
+        console.log(img);
+      };
+
+      reader.readAsDataURL(file);
+      
+    });
+  };
+
+  //Add Product Api call
 
   const AddProductSubmit = async (e) => {
     e.preventDefault();
@@ -103,8 +175,11 @@ function AddProductsModal() {
     setFromData(temp)
     const response = await PostApi(GlobalVar+'/product/add/1',formData)  
     console.log(response);
+
     var formDataImage = new FormData();
     formDataImage.append("productImage", image.image)
+
+
     fetch(GlobalVar+'/product/image/'+response.productSysid, {
        method: 'POST', body: formDataImage 
     })
