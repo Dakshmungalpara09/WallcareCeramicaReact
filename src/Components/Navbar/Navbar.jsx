@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../CSS/Navbar/Navbar.css";
 import { HiMenu } from "react-icons/hi";
 import Logo from "../../Images/Logo-Navbar.png";
@@ -6,20 +6,19 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
 
-
   const onClickProducts=()=>{
-    document.getElementById('navmainDiv').style.backgroundColor = '#30373fdf'
+    document.getElementById('navmainDiv').style.backgroundColor = '#30373f'
   }
 
   const notOnClickProducts=()=>{
-    document.getElementById('navmainDiv').style.backgroundColor = '#30373f00'
+
   }
 
   return (
     <>
       <nav id="navmainDiv" className="navbar nav-desktop glass">
         <div className="d-flex nav-div">
-          <div className="nav-logo-div">
+          <div className="d-flex align-items-center nav-logo-div">
             <Link className="" to="/">
               <img className="nav-logo" src={Logo} alt="Wellcare" />
             </Link>

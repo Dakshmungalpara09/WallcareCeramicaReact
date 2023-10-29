@@ -8,6 +8,22 @@ import { Link } from "react-router-dom";
 import Home2 from "./Home2";
 
 function Home() {
+
+  function handleScroll() {
+    
+    if (window.scrollY > 3) {
+      document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
+    } else {
+      document.getElementById("navmainDiv").style.backgroundColor = "#30373f00";
+    }
+}
+
+useEffect(()=>{
+  window.addEventListener('scroll', handleScroll);
+},[])
+
+
+
   useEffect(()=>{
     document.getElementById('navmainDiv').style.backgroundColor = '#30373f00'
   },[])

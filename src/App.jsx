@@ -12,8 +12,12 @@ function App() {
 
   const dispatch = useDispatch();
 
+
   useEffect(() => {
-    dispatch(FetchProductsList());
+    dispatch(FetchProductsList({
+      Catagory:undefined,
+      Type:undefined
+    }));
   }, []);
 
   return (

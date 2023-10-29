@@ -1,50 +1,67 @@
-import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import GetPortno from "../GlobalVar";
 
 const GlobalVar = GetPortno();
 var pageno = 0;
-export const FetchProductsList = createAsyncThunk("FetchProductsList",
-  async () => {
+export const FetchProductsList = createAsyncThunk(
+  "FetchProductsList",
+  async (CatagoryID) => {
     try {
-    const response = await fetch(GlobalVar+"/product/get?pageSize=150&pageSize"+pageno);
-    const Products = await response.json()
-    console.log(Products);
-    return Products
+      var url = '';
+      if (CatagoryID.Catagory != undefined ) {
+        if (CatagoryID.Type != undefined ) {
+          url = GlobalVar + "/product/get?pageSize=15&categorySysid="+CatagoryID.Catagory+"&typeSysid="+CatagoryID.Type;
+        }
+        else
+        {
+          url = GlobalVar + "/product/get?pageSize=15&categorySysid="+CatagoryID.Catagory
+        }
+      }
+      else
+      {
+        url = GlobalVar + "/product/get?pageSize=15";
+      }
+      console.log("hello in slice");
+      console.log(url);
+      console.log(CatagoryID.Catagory);
+      const response = await fetch(url);
+      const Products = await response.json();
+      console.log("products");
+      console.log(Products);
+      return Products;
     } catch (error) {
       console.log(error);
     }
-    
   }
 );
 
 export const Products = createSlice({
   name: "Productslice",
   initialState: {
-    isLoading:false,
-    lastPage:false,
-    pageno:0,
+    isLoading: false,
+    lastPage: false,
+    pageno: 0,
     data: [],
   },
   extraReducers: (builder) => {
-    builder.addCase(FetchProductsList.pending,(state,action)=>{
-        state.isLoading=true;
-    })
+    builder.addCase(FetchProductsList.pending, (state, action) => {
+      state.isLoading = true;
+    });
     builder.addCase(FetchProductsList.fulfilled, (state, action) => {
-      state.isLoading=false;
-      const temp = state.data.concat(action.payload.content);
+      state.isLoading = false;
       state.data = action.payload.content;
       state.isLoading = action.payload.lastPage;
       pageno++;
     });
   },
-  reducers:{
-    resetProducts : (state)=>{
-      state.data = []
+  reducers: {
+    resetProducts: (state) => {
+      state.data = [];
     },
-    AddProduct : (state,action)=>{
+    AddProduct: (state, action) => {
       console.log(action.payload);
-    }
-  }
+    },
+  },
 });
 
 export default Products.reducer;

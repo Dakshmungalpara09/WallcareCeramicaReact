@@ -1,16 +1,49 @@
 .product-list {
    
-    background-color: #e6e4e4;
+    background-color: #ffffff;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow up to 4 cards per row */
     gap: 20px;
     padding: 20px;
+    margin-top: 60px;
   }
   .product-list-main
   {
-    margin-top: 5rem;
+    margin-top: -5rem;
   }
-
+  .SelectionProductsCatagory
+  {
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    background-color: #e6e4e400;
+  }
+  .SelectionProductsCatagory:focus{
+    outline: none;
+  }
+  .optionsFilters{
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 20px;
+  }
+  #SearchBoxProducts
+  {
+    border: none;
+    width: 300px;
+    background-color: #e6e4e400;
+  }
+  #SearchBoxProductsDiv
+  {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    width: 300px;
+    background-color: #e6e4e400;
+  }
+  #SearchBoxProducts:focus
+  {
+    outline: none;
+  }
   body
   {
     /* background: rgba(220, 220, 220, 0.751); */

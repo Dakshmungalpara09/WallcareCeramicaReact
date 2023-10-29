@@ -6,6 +6,7 @@
 }
 #mainDivHomeColor
 {
+    margin-top: -75px;
     background-image: url('../../Images/Background9.jpg');
     background-size: cover;
     background-repeat: no-repeat;

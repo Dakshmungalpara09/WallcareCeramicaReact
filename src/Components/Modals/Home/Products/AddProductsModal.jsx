@@ -2,6 +2,7 @@ import "../../../../CSS/Modals/Products/AddProducts.css";
 import React, { useEffect, useState } from "react";
 import GetPortno from "../../../GlobalVar";
 import { PostApi } from "../../../AXIOS/ApiCalls";
+import Loader from '../../../../Images/Loader.gif'
 import { useDispatch } from "react-redux";
 import { FetchProductsList } from "../../../Redux/ProductSlices";
 import swal from "sweetalert";
@@ -241,7 +242,7 @@ function AddProductsModal({Loading,setLoading}) {
                 </div>
               </div>
               <div className="d-flex align-items-center justify-content-center m-4 LoadingDivSize">
-                <div class="loader"></div>
+                <div className="d-flex-column justify-content-center"><img src={Loader} width='50px' height='50px' alt="Loading..." /><p className="mt-2">Loading...</p></div>
               </div>
             </div>
             <div className={Loading?"modal-body d-none":"modal-body d-block"}>

@@ -1,6 +1,7 @@
 #navmainDiv
 {
-  position: absolute;
+  height: 70px;
+  position: sticky;
   top: 0px;
   z-index: 999;
   width: 100%;
@@ -24,7 +25,7 @@
 }
 .nav-logo{
     object-fit: cover;
-    height: 4rem;
+    height: 3rem;
 }
 .nav-logo-div
 {
@@ -32,7 +33,7 @@
     margin-right: 15px;
     display: flex;
     align-items: center;
-    height: 4rem;
+    height: 100%;
 }
 * {
     -webkit-box-sizing: border-box;

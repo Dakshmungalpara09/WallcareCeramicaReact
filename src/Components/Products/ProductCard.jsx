@@ -37,6 +37,9 @@ const ProductCard = ({editProduct,UpdateEditeProduct, LinkImage, product }) => {
           </section>
         </div>
       </div>
+      <div style={{fontWeight:'700'}} className="d-flex justify-content-center mt-2">
+        {product.name}
+      </div>
     </>
   );
 };
