@@ -70,6 +70,10 @@ body {
   /* background: rgba(220, 220, 220, 0.751); */
 }
 @media screen and (max-width: 780px) {
+  .product-list
+  {
+    margin-top: 80px;
+  }
   .StickyDivFilters
   {
     display: none;

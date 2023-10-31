@@ -12,7 +12,9 @@ import { GetApi } from "../AXIOS/ApiCalls";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FetchProductsList } from "../Redux/ProductSlices";
 import LogoLoader from "../Loader/LogoLoader";
+import Swal from "sweetalert2";
 const ProductCard = React.lazy(() => import("./ProductCard"));
+
 
 function Products() {
   const GlobalVar = GetPortno();
@@ -75,8 +77,10 @@ function Products() {
   function handleScroll() {
     if (window.scrollY > 3) {
       document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
+      document.getElementById("mobileNavbar").style.backgroundColor = "#30373f";
     } else {
       document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
+      document.getElementById("mobileNavbar").style.backgroundColor = "#30373f";
     }
   }
 
@@ -90,6 +94,7 @@ function Products() {
     FetchCatagories();
     console.log(GlobalVar);
     document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
+    document.getElementById("mobileNavbar").style.backgroundColor = "#30373f";
   }, []);
 
   return (
@@ -208,7 +213,7 @@ function Products() {
           </div>
         </div>
         
-        <div style={{marginTop:'60px',marginBottom:'-70px'}} className={isLogin?"d-flex justify-content-end container":"d-flex justify-content-end container d-none"}>
+        <div style={{marginTop:'60px',marginBottom:'-70px'}} className={isLogin?"d-flex justify-content-end me-5":"d-none"}>
           <button
             type="button"
             className="mt-4 me-2 btn btn-primary"
@@ -227,6 +232,26 @@ function Products() {
             data-bs-target="#ModalTypes"
           >
             Edit Types
+          </button>
+          <button
+          onClick={()=>{
+            Swal.fire({
+              title: 'Do you want to Logout?',
+              showCancelButton: true,
+              confirmButtonText: 'Logout'
+            }).then((result) => {
+              if (result.isConfirmed) {
+            localStorage.setItem('Username','nothing')
+            localStorage.setItem('Password','nothing')
+            localStorage.setItem('isLoginWellcare',0)
+            setIsLogin(false)
+              }
+            })
+          }}
+            type="button"
+            className="mt-4 ms-2 btn btn-primary"
+          >
+            Logout
           </button>
         </div>
 

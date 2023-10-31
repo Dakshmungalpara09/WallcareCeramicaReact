@@ -39,6 +39,14 @@ function AddProductsModal({Loading,setLoading}) {
     setTypes(Types);
   };
 
+
+  const fetchTypeByID = async (Id) => {
+    console.log('type by id');
+    const response = await fetch(GlobalVar + "/type/get?categorySysid="+Id,{
+      mode:'no-cors'
+    });
+    setTypes(response);
+  };
   //onChange Functions
 
   const onChangeAddProducts = (element) => {
@@ -206,6 +214,13 @@ function AddProductsModal({Loading,setLoading}) {
     });
   };
 
+  const fetchTypesonChange = (e)=>{
+
+    onChangeAddProducts(e);
+    console.log(document.getElementById('selectCatagoryFiltersset').value);
+    fetchTypeByID(document.getElementById('selectCatagoryFiltersset').value)
+  }
+
   //All useEffects
 
   useEffect(() => {
@@ -305,8 +320,9 @@ function AddProductsModal({Loading,setLoading}) {
                     <div className="w-50">
                       <select
                         name="categorySysid"
-                        onChange={onChangeAddProducts}
+                        onChange={fetchTypesonChange}
                         className="SelectAddProducts"
+                        id="selectCatagoryFiltersset"
                         required
                       >
                         <option selected>Select</option>

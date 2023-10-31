@@ -3,6 +3,7 @@ import "../../CSS/Navbar/Navbar.css";
 import { HiMenu } from "react-icons/hi";
 import Logo from "../../Images/Logo-Navbar.png";
 import { Link } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
 
 function Navbar() {
 
@@ -12,6 +13,10 @@ function Navbar() {
 
   const notOnClickProducts=()=>{
 
+  }
+
+  const OnClickMobileNavItems = () => {
+    document.getElementById('mobileNavClose').click();
   }
 
   return (
@@ -47,7 +52,7 @@ function Navbar() {
           </ul>
         </div>
       </nav>
-      <nav className="navbar nav-mobile">
+      <nav className="navbar nav-mobile" id="mobileNavbar">
         <div className="d-flex nav-div-mobile">
           <div className="nav-logo-div">
             <Link className="" to="/Home">
@@ -73,29 +78,31 @@ function Navbar() {
               <div className="offcanvas-header mobile-canvas-head">
                 <button
                   type="button"
-                  className="btn-close close-btn-mobile"
+                  style={{color:"white"}}
+                  className="btn"
+                  id="mobileNavClose"
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
-                ></button>
+                ><AiOutlineClose/></button>
               </div>
               <div className="offcanvas-body mobile-canvas-body">
-                <ul className="nav-list-div-mobile">
-                  <li>
-                    <Link className="nav-list-item-mobile" to="/Home">
+                <ul className="nav-list-div-mobile nav-list-div">
+                  <li onClick={OnClickMobileNavItems}>
+                    <Link className="nav-list-item-mobile" to="/">
                       Home
                     </Link>
                   </li>
-                  <li>
-                    <Link className="nav-list-item-mobile" to="/">
+                  <li onClick={OnClickMobileNavItems}>
+                    <Link className="nav-list-item-mobile" to="/Products">
                       Products
                     </Link>
                   </li>
-                  <li>
+                  <li onClick={OnClickMobileNavItems}>
                     <Link className="nav-list-item-mobile" to="/">
                       About
                     </Link>
                   </li>
-                  <li>
+                  <li onClick={OnClickMobileNavItems}>
                     <Link className="nav-list-item-mobile" to="/">
                       Contact
                     </Link>

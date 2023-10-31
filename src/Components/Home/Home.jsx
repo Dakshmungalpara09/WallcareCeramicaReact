@@ -13,8 +13,10 @@ function Home() {
     
     if (window.scrollY > 3) {
       document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
+      document.getElementById('mobileNavbar').style.backgroundColor = "#30373f";
     } else {
       document.getElementById("navmainDiv").style.backgroundColor = "#30373f00";
+      document.getElementById("mobileNavbar").style.backgroundColor = "#30373f00";
     }
 }
 
@@ -26,6 +28,7 @@ useEffect(()=>{
 
   useEffect(()=>{
     document.getElementById('navmainDiv').style.backgroundColor = '#30373f00'
+    document.getElementById('mobileNavbar').style.backgroundColor = '#30373f00'
   },[])
 
   const refHome1 = useRef(null)

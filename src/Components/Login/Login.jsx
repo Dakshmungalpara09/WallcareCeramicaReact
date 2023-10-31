@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 import GetPortno from "../GlobalVar";
 import swal from "sweetalert";
+import {useNavigate} from "react-router-dom"
 
 function Login() {
   const GlobalVar = GetPortno();
+  const navigate = useNavigate(); 
+
+  const NavigateToProduct = () =>{
+    navigate('/Products')
+  }
 
   const SubmitLogin = async (e) => {
     e.preventDefault();
@@ -21,6 +27,7 @@ function Login() {
       console.log("this is res");
       console.log(response);
       if (response.status == 200) {
+        NavigateToProduct();
         swal({
             icon: "success",
             title: "Looged in",

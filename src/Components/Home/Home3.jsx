@@ -17,7 +17,7 @@ function Home3() {
 
   return (
     <>
-    <div ref={refHome3} id='mainHome3Div'>
+    <div ref={refHome3} className="pb-5" id='mainHome3Div'>
       <motion.div
       variants={{
         hidden : {opacity:0,y:-200},
