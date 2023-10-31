@@ -95,6 +95,9 @@ function Products() {
     console.log(GlobalVar);
     document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
     document.getElementById("mobileNavbar").style.backgroundColor = "#30373f";
+    document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
   }, []);
 
   return (

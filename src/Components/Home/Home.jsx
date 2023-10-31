@@ -29,6 +29,9 @@ useEffect(()=>{
   useEffect(()=>{
     document.getElementById('navmainDiv').style.backgroundColor = '#30373f00'
     document.getElementById('mobileNavbar').style.backgroundColor = '#30373f00'
+    document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
   },[])
 
   const refHome1 = useRef(null)
