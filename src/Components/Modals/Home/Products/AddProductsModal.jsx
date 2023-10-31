@@ -334,7 +334,7 @@ function AddProductsModal({Loading,setLoading}) {
                         <option selected>Select</option>
                         {Type.map((item) => {
                           return (
-                            <option value={item.categorySysid}>
+                            <option value={item.typeSysid}>
                               {item.name}
                             </option>
                           );
