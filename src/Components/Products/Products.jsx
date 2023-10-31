@@ -140,6 +140,7 @@ function Products() {
                     ...CatagorySelect,
                     [element.target.name]: element.target.value,
                   });
+                  SetTypes([]);
                   if (element.target.value == "") {
                     SetTypes([]);
                     setCatagorySelect({
