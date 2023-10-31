@@ -15,7 +15,7 @@
     margin: 0px;
     overflow: hidden;
     height: max-content;
-    padding-top: 230px;
+    padding-top: 180px;
     padding-bottom: 200px;
     background-color: #30373fdf;
     
@@ -523,7 +523,7 @@ h1 span.stop-blinking::before {
   @media screen and (max-width: 1599px) {
     #mainDivHome
     {
-        padding-top: 150px;
+        padding-top: -200px;
     }
     #childDiv3
     {

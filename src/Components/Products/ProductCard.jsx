@@ -37,8 +37,10 @@ const ProductCard = ({editProduct,UpdateEditeProduct, LinkImage, product }) => {
           </section>
         </div>
       </div>
-      <div style={{fontWeight:'700'}} className="d-flex justify-content-center mt-2">
-        {product.name}
+      <div style={{fontWeight:'700'}} className="d-flex justify-content-center">
+        <p className="d-flex justify-content-center pt-1 pb-1" style={{backgroundColor:'black',color:'white',width:'290px'}}>
+        {product.name.toUpperCase()}
+        </p>
       </div>
     </>
   );

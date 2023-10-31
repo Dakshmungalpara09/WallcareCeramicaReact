@@ -7,6 +7,11 @@ export const GetApi = async (url) => {
 export const DelApi = async (url) => {
     const res = await fetch(url,{
         method: "Delete",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa(`${localStorage.getItem('Username')}:${localStorage.getItem('Password')}`),
+      },
+      credentials: "include",
     }
     );
     console.log(res);
@@ -21,7 +26,9 @@ export async function PostApi(url, data) {;
     body: JSON.stringify(data),
     headers: {
         "Content-Type": "application/json",
+        Authorization: "Basic " + btoa(`${localStorage.getItem('Username')}:${localStorage.getItem('Password')}`),
     },
+    credentials: "include",
   });
   const res = await response.json();
   console.log(res);
@@ -33,10 +40,12 @@ export async function PutApi(url, data) {
 const response = await fetch(url,{
   method: "PUT",
   mode: "cors",
-  body: JSON.stringify(data),
   headers: {
-      "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json",
+    Authorization: "Basic " + btoa(`${localStorage.getItem('Username')}:${localStorage.getItem('Password')}`),
+},
+  credentials: "include",
+  body: JSON.stringify(data),
 });
 const res = await response.json();
 console.log(response.status);
@@ -47,10 +56,12 @@ export async function PostApiImage(url, data) {;
     console.log(url,data);
     const response = await fetch(url,{
     method: "POST",
-    body: data,
     headers: {
-        "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json",
+      Authorization: "Basic " + btoa(`${localStorage.getItem('Username')}:${localStorage.getItem('Password')}`),
+  },
+  credentials: "include",
+    body: data,
   });
   const res = await response.json();
   console.log(res);

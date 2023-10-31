@@ -19,14 +19,14 @@ function DeleteType({editType,rerender,setrerender}) {
     );
     if (response.status == 200) {
       document.getElementById("TypeDeleteClose").click();
-      setrerender(2);
+      setrerender(--rerender);
       swal({
         icon: "success",
         title: "Type Deleted",
       });
 
     } else {
-        setrerender(2);
+        setrerender(--rerender);
       swal({
         icon: "error",
         title: "Something Went Wrong",

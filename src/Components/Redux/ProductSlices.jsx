@@ -7,8 +7,8 @@ export const FetchProductsList = createAsyncThunk(
   "FetchProductsList",
   async (CatagoryID) => {
     try {
-      var url = '';
-      if (CatagoryID.Catagory != undefined ) {
+      var url = GlobalVar + "/product/get?pageSize=15&categorySysid="+CatagoryID.Catagory;
+      if (CatagoryID.Catagory != undefined) {
         if (CatagoryID.Type != undefined ) {
           url = GlobalVar + "/product/get?pageSize=15&categorySysid="+CatagoryID.Catagory+"&typeSysid="+CatagoryID.Type;
         }
@@ -49,7 +49,9 @@ export const Products = createSlice({
     });
     builder.addCase(FetchProductsList.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.data = action.payload.content;
+      if (action.payload.content != undefined) {
+        state.data = action.payload.content;
+      }
       state.isLoading = action.payload.lastPage;
       pageno++;
     });

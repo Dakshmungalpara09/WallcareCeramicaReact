@@ -11,6 +11,10 @@ function DeleteProducts({ product }) {
 
   const GlobalVar = GetPortno();
   const dispatch = useDispatch(); 
+  const ArgumentPass = {
+    Catagory: "",
+    Type: "",
+  }
 
   //Delete Api Call
 
@@ -34,7 +38,7 @@ function DeleteProducts({ product }) {
         title: "Something Went Wrong",
       });
     }
-    dispatch(FetchProductsList());
+    dispatch(FetchProductsList(ArgumentPass));
   };
 
   return (

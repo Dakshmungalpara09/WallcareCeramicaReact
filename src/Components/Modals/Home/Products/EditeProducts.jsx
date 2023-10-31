@@ -14,6 +14,10 @@ function EditeProducts({ product }) {
   const [formData, setFromData] = useState({});
   const [catagory, setCatagory] = useState([]);
   const [Type, setTypes] = useState([]);
+  const ArgumentPass = {
+    Catagory: "",
+    Type: "",
+  }
 
   //fetching initials
 
@@ -54,7 +58,7 @@ function EditeProducts({ product }) {
         icon: "success",
         title: "Product Edited"
       });
-      dispatch(FetchProductsList());
+      dispatch(FetchProductsList(ArgumentPass));
     }
     else
     {
@@ -201,7 +205,7 @@ function EditeProducts({ product }) {
                       />
                     </div>
                   </div>
-                  <div className="mt-2 d-flex w-100">
+                  {/* <div className="mt-2 d-flex w-100">
                     <div className="w-50 d-flex align-items-center">
                       Image :
                     </div>
@@ -214,7 +218,7 @@ function EditeProducts({ product }) {
                         aria-describedby="basic-addon1"
                       />
                     </div>
-                  </div>
+                  </div> */}
                   {/* <div className="mt-2 d-flex w-100">
                     <div className="w-50 d-flex align-items-center">
                       PDF ID :

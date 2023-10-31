@@ -3,7 +3,7 @@ import { PostApi,GetApi } from '../../../AXIOS/ApiCalls';
 import GetPortno from "../../../GlobalVar";
 import swal from "sweetalert";
 
-function ModalAddTypes({Catagory,setrerender}) {
+function ModalAddTypes({Catagory,setrerender,rerender}) {
 
   const GlobalVar = GetPortno();
   const [formData, setFromData] = useState({});
@@ -16,16 +16,16 @@ function ModalAddTypes({Catagory,setrerender}) {
 
     const response = await PostApi(GlobalVar+'/type/add/1',formData)
     console.log(response);
-    if (response.status == 200) {
-      document.getElementById("TypeDeleteClose").click();
-      setrerender(2);
+    if (response == 1) {
+      document.getElementById("TypeAddClose").click();
+      setrerender(++rerender);
       swal({
         icon: "success",
         title: "Type Deleted",
       });
 
     } else {
-        setrerender(2);
+        setrerender(++rerender);
       swal({
         icon: "error",
         title: "Something Went Wrong",
@@ -75,9 +75,9 @@ function ModalAddTypes({Catagory,setrerender}) {
                         required
                       >
                         <option selected>Select</option>
-                        {Catagory.map((item) => {
+                        {Catagory.map ((item) => {
                           return(
-                          <option value={item.categorySysid}>
+                          <option key={item.categorySysid} value={item.categorySysid}>
                             {item.name}
                           </option>
                           )
@@ -89,7 +89,7 @@ function ModalAddTypes({Catagory,setrerender}) {
             </div>
             <div class="d-flex justify-content-end">
               <button
-                id="TypeDeleteClose"
+                id="TypeAddClose"
                 type="button"
                 class="btn btn-secondary m-2"
                 data-bs-dismiss="modal"

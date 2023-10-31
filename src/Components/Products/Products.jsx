@@ -20,6 +20,7 @@ function Products() {
   const ProductList = useSelector((state) => state.data);
   const lastpage = useSelector((state) => state.lastPage);
   const [LoadingProduct, setLoadingProducts] = useState(false);
+  const [isLogin,setIsLogin] = useState(false)
   const [editProduct, seteditProduct] = useState({});
   const [Types, SetTypes] = useState([]);
   const [Loading, setLoading] = useState(true);
@@ -28,6 +29,22 @@ function Products() {
     Catagory: "",
     Type: "",
   });
+
+  const CheckLogin = async () => {
+    try {
+      if (localStorage.getItem('isLoginWellcare') == 1) {
+        setIsLogin(true)
+        console.log('Logged in');
+      }
+      else
+      {
+        setIsLogin(false)
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLogin(false)
+    }
+  };
 
   const FetchCatagories = async () => {
     const response = await GetApi(GlobalVar + "/category");
@@ -66,6 +83,7 @@ function Products() {
   useEffect(() => {
     setLoadingProducts(true);
     window.addEventListener("scroll", handleScroll);
+    CheckLogin();
   }, []);
 
   useEffect(() => {
@@ -82,43 +100,11 @@ function Products() {
       <DeleteProducts product={editProduct} />
 
       <div className="product-list-main">
-        <div className="d-flex justify-content-end container d-none">
-          <button
-            type="button"
-            className="mt-4 me-2 btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-            onClick={() => {
-              setLoading(false);
-            }}
-          >
-            Add Product
-          </button>
-          <button
-            type="button"
-            className="mt-4 btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#ModalTypes"
-          >
-            Edit Types
-          </button>
-        </div>
         <div
-          style={{
-            position: "sticky",
-            top: "70px",
-            paddingTop: "20px",
-            paddingBottom: "20px",
-            zIndex: "999",
-            backgroundColor: "#ffffff",
-          }}
+          className="StickyDivFilters"
         >
           <div
-            className="d-flex mx-5 p-3"
-            style={{
-              backgroundColor: "#f6f6f6",
-              borderRadius: "10px",
-            }}
+            className="mx-5 p-3 mainDivFilter"
           >
             <div
               style={{
@@ -131,10 +117,10 @@ function Products() {
             >
               Filters
             </div>
-            <div className="w-50 d-flex justify-content-start">
+            <div className="d-flex justify-content-start DivCatagoryFilters">
               <div
-                style={{ fontWeight: "700" }}
-                className="d-flex align-items-center fs-5 me-3"
+                style={{ fontWeight: "700",width:'100px' }}
+                className="align-items-center fs-5 me-3 LableCatagory"
               >
                 Catagory 
               </div>
@@ -156,7 +142,6 @@ function Products() {
                     FetchTypes(element.target.value);
                   }
                 }}
-                style={{ width: "200px" }}
                 name="Catagory"
               >
                 <option className="optionsFilters" selected value="">
@@ -174,8 +159,8 @@ function Products() {
                 })}
               </select>
               <div
-                style={{ fontWeight: "700" }}
-                className="d-flex align-items-center fs-5 mx-3"
+                style={{ fontWeight: "700",width:'70px' }}
+                className="align-items-center fs-5 mx-3 LableCatagory"
               >
                 Type 
               </div>
@@ -188,7 +173,6 @@ function Products() {
                     [element.target.name]: element.target.value,
                   });
                 }}
-                style={{ width: "200px" }}
                 className="SelectionProductsCatagory"
                 name="Type"
               >
@@ -204,7 +188,7 @@ function Products() {
                 })}
               </select>
             </div>
-            <div className="w-50 d-flex justify-content-end">
+            <div className="d-flex justify-content-end DivSearchFilters">
               <div id="SearchBoxProductsDiv" className="d-flex">
                 <input
                   type="text"
@@ -222,6 +206,28 @@ function Products() {
               </div>
             </div>
           </div>
+        </div>
+        
+        <div style={{marginTop:'60px',marginBottom:'-70px'}} className={isLogin?"d-flex justify-content-end container":"d-flex justify-content-end container d-none"}>
+          <button
+            type="button"
+            className="mt-4 me-2 btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            onClick={() => {
+              setLoading(false);
+            }}
+          >
+            Add Product
+          </button>
+          <button
+            type="button"
+            className="mt-4 btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#ModalTypes"
+          >
+            Edit Types
+          </button>
         </div>
 
         <div id="outercontainerScroll" className="">
@@ -247,7 +253,7 @@ function Products() {
                         marginBottom: "-20px",
                         marginLeft: "-10px",
                       }}
-                      className="d-none"
+                      className={isLogin?"d-flex":"d-none"}
                     >
                       <button
                         style={{

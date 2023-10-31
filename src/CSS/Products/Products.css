@@ -1,50 +1,104 @@
 .product-list {
-   
-    background-color: #ffffff;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow up to 4 cards per row */
-    gap: 20px;
-    padding: 20px;
-    margin-top: 60px;
-  }
-  .product-list-main
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Allow up to 4 cards per row */
+  gap: 20px;
+  padding: 20px;
+  margin-top: 60px;
+}
+.product-list-main {
+  margin-top: -5rem;
+}
+.SelectionProductsCatagory {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  background-color: #e6e4e400;
+}
+.SelectionProductsCatagory:focus {
+  outline: none;
+}
+.optionsFilters {
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 20px;
+}
+#SearchBoxProducts {
+  border: none;
+  width: 300px;
+  background-color: #e6e4e400;
+}
+#SearchBoxProductsDiv {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  width: 300px;
+  background-color: #e6e4e400;
+}
+#SearchBoxProducts:focus {
+  outline: none;
+}
+.DivSearchFilters {
+  width: 50%;
+}
+
+.mainDivFilter {
+  display: flex;
+  flex-direction: row;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+.DivCatagoryFilters {
+  width: 50%;
+}
+.LableCatagory {
+  display: flex;
+}
+.StickyDivFilters{
+  position: sticky;
+  top: 70px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 999;
+  background-color: #ffffff;
+}
+body {
+  /* background: rgba(220, 220, 220, 0.751); */
+}
+@media screen and (max-width: 780px) {
+  .StickyDivFilters
   {
-    margin-top: -5rem;
+    display: none;
+  }
+  .mainDivFilter {
+    display: none;
+    flex-direction: column-reverse;
+  }
+  .DivSearchFilters {
+    width: 100%;
+  }
+  #SearchBoxProductsDiv {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #SearchBoxProducts {
+    width: 100%;
+  }
+  .DivCatagoryFilters {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .LableCatagory {
+    display: none;
   }
   .SelectionProductsCatagory
   {
-    padding: 10px;
-    border: none;
-    font-size: 20px;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-    background-color: #e6e4e400;
+    margin-right: 10px ;
   }
-  .SelectionProductsCatagory:focus{
-    outline: none;
-  }
-  .optionsFilters{
-    background-color: rgba(255, 255, 255, 0);
-    font-size: 20px;
-  }
-  #SearchBoxProducts
-  {
-    border: none;
-    width: 300px;
-    background-color: #e6e4e400;
-  }
-  #SearchBoxProductsDiv
-  {
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-    width: 300px;
-    background-color: #e6e4e400;
-  }
-  #SearchBoxProducts:focus
-  {
-    outline: none;
-  }
-  body
-  {
-    /* background: rgba(220, 220, 220, 0.751); */
-  }
+}

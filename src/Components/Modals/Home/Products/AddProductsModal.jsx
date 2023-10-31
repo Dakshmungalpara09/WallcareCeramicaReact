@@ -20,6 +20,10 @@ function AddProductsModal({Loading,setLoading}) {
   const [image, setImage] = useState("");
   const [catagory, setCatagory] = useState([]);
   const [Type, setTypes] = useState([]);
+  const ArgumentPass = {
+    Catagory: "",
+    Type: "",
+  }
 
   //fetching default values
 
@@ -168,6 +172,10 @@ function AddProductsModal({Loading,setLoading}) {
 
     fetch(GlobalVar + "/product/image/" + response.productSysid, {
       method: "POST",
+      headers: {
+        Authorization: "Basic " + btoa(`${localStorage.getItem('Username')}:${localStorage.getItem('Password')}`),
+      },
+      credentials: "include",
       body: formDataImage,
     })
       .then((response) => Promise.all([response.status, response.json()]))
@@ -179,14 +187,14 @@ function AddProductsModal({Loading,setLoading}) {
             icon: "success",
             title: "Product Added",
           });
-          dispatch(FetchProductsList());
+          dispatch(FetchProductsList(ArgumentPass));
         } else {
           document.getElementById("ModalCloseAddProoduct").click();
           swal({
             icon: "error",
             title: "Something Went Wrong",
           });
-          dispatch(FetchProductsList());
+          dispatch(FetchProductsList(ArgumentPass));
         }
         document.getElementById("reSetAddProducts").click();
       })
