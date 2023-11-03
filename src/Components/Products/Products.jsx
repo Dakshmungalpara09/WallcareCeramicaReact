@@ -20,7 +20,6 @@ function Products() {
   const GlobalVar = GetPortno();
   const dispatch = useDispatch();
   const ProductList = useSelector((state) => state.data);
-  const lastpage = useSelector((state) => state.lastPage);
   const [LoadingProduct, setLoadingProducts] = useState(false);
   const [isLogin,setIsLogin] = useState(false)
   const [editProduct, seteditProduct] = useState({});
@@ -266,7 +265,6 @@ function Products() {
                 Loading...
               </div>
           </div>
-          
           <div className={!LoadingProduct && ProductList.length==0?"d-flex justify-content-center align-items-center flex-column loading":"d-none justify-content-center align-items-center flex-column loading"} style={{width:'100%',height:'80vh'}}>
               No Product Found
           </div>
@@ -280,10 +278,11 @@ function Products() {
                       style={{
                         zIndex: 99,
                         marginBottom: "-20px",
-                        marginLeft: "-10px",
+                        marginLeft: "-30px",
                       }}
-                      className={isLogin?"d-flex":"d-none"}
+                      className={isLogin?"d-flex justify-content-center":"d-none"}
                     >
+                      <div style={{width:'290px'}} className="d-flex">
                       <button
                         style={{
                           display: "block",
@@ -322,6 +321,7 @@ function Products() {
                       >
                         <CiTrash />
                       </button>
+                      </div>
                     </div>
                     <ProductCard
                       key={index}
