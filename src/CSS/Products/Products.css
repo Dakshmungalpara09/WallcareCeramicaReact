@@ -69,6 +69,36 @@
 body {
   /* background: rgba(220, 220, 220, 0.751); */
 }
+.filters-Mobile
+{
+  display: none;
+  justify-content: end;
+}
+#DivMobileFilters
+{
+  height: 0px;
+  transition: all 0.4s ease-out;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+}
+.open-Filters
+{
+  overflow: hidden;
+}
+#DropDownFilterbtn
+{
+  transition: all 0.3s ease-out;
+}
+.btn-Filters-Mobile
+{
+  border: none;
+  border-radius: 8px;
+  font-family: serif;
+  background-color: #f6f6f600;
+  transition: all 0.3s ease-in-out;
+}
 @media screen and (max-width: 780px) {
   .product-list
   {
@@ -95,6 +125,10 @@ body {
   .DivCatagoryFilters {
     width: 100%;
   }
+.filters-Mobile
+{
+  display: block;
+}
 }
 
 @media screen and (max-width: 430px) {

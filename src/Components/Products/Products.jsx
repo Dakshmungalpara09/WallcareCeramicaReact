@@ -9,23 +9,24 @@ import AddProductsModal from "../Modals/Home/Products/AddProductsModal";
 import EditeProducts from "../Modals/Home/Products/EditeProducts";
 import DeleteProducts from "../Modals/Home/Products/DeleteProducts";
 import { GetApi } from "../AXIOS/ApiCalls";
+import { AiFillCaretDown } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FetchProductsList } from "../Redux/ProductSlices";
 import LogoLoader from "../Loader/LogoLoader";
 import Swal from "sweetalert2";
 const ProductCard = React.lazy(() => import("./ProductCard"));
 
-
 function Products() {
   const GlobalVar = GetPortno();
   const dispatch = useDispatch();
   const ProductList = useSelector((state) => state.data);
   const [LoadingProduct, setLoadingProducts] = useState(false);
-  const [isLogin,setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
   const [editProduct, seteditProduct] = useState({});
   const [Types, SetTypes] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [Catagories, setCatagories] = useState([]);
+  const [rotate, setRotate] = useState(false);
   const [CatagorySelect, setCatagorySelect] = useState({
     Catagory: "",
     Type: "",
@@ -33,17 +34,15 @@ function Products() {
 
   const CheckLogin = async () => {
     try {
-      if (localStorage.getItem('isLoginWellcare') == 1) {
-        setIsLogin(true)
-        console.log('Logged in');
-      }
-      else
-      {
-        setIsLogin(false)
+      if (localStorage.getItem("isLoginWellcare") == 1) {
+        setIsLogin(true);
+        console.log("Logged in");
+      } else {
+        setIsLogin(false);
       }
     } catch (error) {
       console.log(error);
-      setIsLogin(false)
+      setIsLogin(false);
     }
   };
 
@@ -61,12 +60,24 @@ function Products() {
     SetTypes(response);
   };
 
+  const onClickFiltersMobile = () => {
+    if (!rotate) {
+      document.getElementById("DropDownFilterbtn").style.rotate = "-180deg";
+      document.getElementById("DivMobileFilters").style.height = "150px";
+      setRotate(true);
+    } else {
+      document.getElementById("DropDownFilterbtn").style.rotate = "0deg";
+      document.getElementById("DivMobileFilters").style.height = "0px";
+      setRotate(false);
+    }
+  };
+
   useEffect(() => {
     console.log(CatagorySelect);
     dispatch(FetchProductsList(CatagorySelect));
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoadingProducts(false);
-    },1000)
+    }, 1000);
   }, [CatagorySelect]);
 
   useEffect(() => {
@@ -95,8 +106,7 @@ function Products() {
     document.getElementById("navmainDiv").style.backgroundColor = "#30373f";
     document.getElementById("mobileNavbar").style.backgroundColor = "#30373f";
     document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }, []);
 
   return (
@@ -105,14 +115,105 @@ function Products() {
       <ModalTypes />
       <EditeProducts product={editProduct} />
       <DeleteProducts product={editProduct} />
+      <div className="container filters-Mobile">
+        <button
+          onClick={onClickFiltersMobile}
+          className="d-flex p-2 ps-4 pe-4 fs-5 mt-3 btn-Filters-Mobile"
+        >
+          Filters{" "}
+          <p id="DropDownFilterbtn">
+            {" "}
+            <AiFillCaretDown />{" "}
+          </p>
+        </button>
+        <div id="DivMobileFilters" className="container open-Filters">
+          <div className="w-100">
+            <div className="d-flex w-100">
+              <div
+                style={{ fontWeight: "700", width: "35%" }}
+                className="d-flex align-items-center fs-5 me-3"
+              >
+                Catagory
+              </div>
+              <select
+                style={{
+                  width: "65%",
+                }}
+                className="SelectionProductsCatagory ms-3"
+                onChange={(element) => {
+                  setLoadingProducts(true);
+                  setCatagorySelect({
+                    ...CatagorySelect,
+                    [element.target.name]: element.target.value,
+                  });
+                  SetTypes([]);
+                  if (element.target.value == "") {
+                    SetTypes([]);
+                    setCatagorySelect({
+                      Catagory: "",
+                      Type: "",
+                    });
+                  } else {
+                    FetchTypes(element.target.value);
+                  }
+                }}
+                name="Catagory"
+              >
+                <option className="optionsFilters" selected value="">
+                  All Catagories
+                </option>
+                {Catagories.map((item) => {
+                  return (
+                    <option
+                      className="optionsFilters"
+                      value={item.categorySysid}
+                    >
+                      {item.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <div className="d-flex mt-2 w-100">
+              <div
+                style={{ fontWeight: "700", width: "35%" }}
+                className="d-flex align-items-center fs-5 me-3"
+              >
+                Types
+              </div>
+              <select
+                style={{
+                  width: "65%",
+                }}
+                onChange={(element) => {
+                  setLoadingProducts(true);
+                  setCatagorySelect({
+                    ...CatagorySelect,
+                    [element.target.name]: element.target.value,
+                  });
+                }}
+                className="SelectionProductsCatagory ms-3"
+                name="Type"
+              >
+                <option className="optionsFilters" selected value={""}>
+                  All Types
+                </option>
+                {Types.map((item) => {
+                  return (
+                    <option className="optionsFilters" value={item.typeSysid}>
+                      {item.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="product-list-main">
-        <div
-          className="StickyDivFilters"
-        >
-          <div
-            className="mx-5 p-3 mainDivFilter"
-          >
+        <div className="StickyDivFilters">
+          <div className="mx-5 p-3 mainDivFilter">
             <div
               style={{
                 position: "absolute",
@@ -126,10 +227,10 @@ function Products() {
             </div>
             <div className="d-flex justify-content-start DivCatagoryFilters">
               <div
-                style={{ fontWeight: "700",width:'100px' }}
+                style={{ fontWeight: "700", width: "100px" }}
                 className="align-items-center fs-5 me-3 LableCatagory"
               >
-                Catagory 
+                Catagory
               </div>
               <select
                 className="SelectionProductsCatagory"
@@ -167,10 +268,10 @@ function Products() {
                 })}
               </select>
               <div
-                style={{ fontWeight: "700",width:'70px' }}
+                style={{ fontWeight: "700", width: "70px" }}
                 className="align-items-center fs-5 mx-3 LableCatagory"
               >
-                Type 
+                Type
               </div>
 
               <select
@@ -185,7 +286,7 @@ function Products() {
                 name="Type"
               >
                 <option className="optionsFilters" selected value={""}>
-                All Types
+                  All Types
                 </option>
                 {Types.map((item) => {
                   return (
@@ -215,8 +316,11 @@ function Products() {
             </div>
           </div>
         </div>
-        
-        <div style={{marginTop:'60px',marginBottom:'-70px'}} className={isLogin?"d-flex justify-content-end me-5":"d-none"}>
+
+        <div
+          style={{ marginTop: "60px", marginBottom: "-70px" }}
+          className={isLogin ? "d-flex justify-content-end me-5" : "d-none"}
+        >
           <button
             type="button"
             className="mt-4 me-2 btn btn-primary"
@@ -237,20 +341,20 @@ function Products() {
             Edit Types
           </button>
           <button
-          onClick={()=>{
-            Swal.fire({
-              title: 'Do you want to Logout?',
-              showCancelButton: true,
-              confirmButtonText: 'Logout'
-            }).then((result) => {
-              if (result.isConfirmed) {
-            localStorage.setItem('Username','nothing')
-            localStorage.setItem('Password','nothing')
-            localStorage.setItem('isLoginWellcare',0)
-            setIsLogin(false)
-              }
-            })
-          }}
+            onClick={() => {
+              Swal.fire({
+                title: "Do you want to Logout?",
+                showCancelButton: true,
+                confirmButtonText: "Logout",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  localStorage.setItem("Username", "nothing");
+                  localStorage.setItem("Password", "nothing");
+                  localStorage.setItem("isLoginWellcare", 0);
+                  setIsLogin(false);
+                }
+              });
+            }}
             type="button"
             className="mt-4 ms-2 btn btn-primary"
           >
@@ -259,17 +363,35 @@ function Products() {
         </div>
 
         <div id="outercontainerScroll" className="">
-          <div className={LoadingProduct?"d-flex justify-content-center align-items-center flex-column loading":"d-none justify-content-center align-items-center flex-column loading"} style={{width:'100%',height:'80vh'}}>
-              <LogoLoader/>
-              <div className="mt-3 ms-3">
-                Loading...
-              </div>
+          <div
+            className={
+              LoadingProduct
+                ? "d-flex justify-content-center align-items-center flex-column loading"
+                : "d-none justify-content-center align-items-center flex-column loading"
+            }
+            style={{ width: "100%", height: "80vh" }}
+          >
+            <LogoLoader />
+            <div className="mt-3 ms-3">Loading...</div>
           </div>
-          <div className={!LoadingProduct && ProductList.length==0?"d-flex justify-content-center align-items-center flex-column loading":"d-none justify-content-center align-items-center flex-column loading"} style={{width:'100%',height:'80vh'}}>
-              No Product Found
+          <div
+            className={
+              !LoadingProduct && ProductList.length == 0
+                ? "d-flex justify-content-center align-items-center flex-column loading"
+                : "d-none justify-content-center align-items-center flex-column loading"
+            }
+            style={{ width: "100%", height: "80vh" }}
+          >
+            No Product Found
           </div>
 
-          <div className={LoadingProduct && ProductList.length!=0?'d-none':'product-list'}>
+          <div
+            className={
+              LoadingProduct && ProductList.length != 0
+                ? "d-none"
+                : "product-list"
+            }
+          >
             {ProductList.map((product, index) => {
               return (
                 <Suspense fallback={<p>loading...</p>}>
@@ -280,47 +402,49 @@ function Products() {
                         marginBottom: "-20px",
                         marginLeft: "-30px",
                       }}
-                      className={isLogin?"d-flex justify-content-center":"d-none"}
+                      className={
+                        isLogin ? "d-flex justify-content-center" : "d-none"
+                      }
                     >
-                      <div style={{width:'290px'}} className="d-flex">
-                      <button
-                        style={{
-                          display: "block",
-                          marginInlineStart: "10px",
-                          backgroundColor: "black",
-                          color: "white",
-                          zIndex: 99,
-                        }}
-                        onClick={() => {
-                          console.log(product);
-                          seteditProduct(product);
-                        }}
-                        type="button"
-                        className="btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#EditeProductsModal"
-                      >
-                        <BiEdit />
-                      </button>
-                      <button
-                        style={{
-                          display: "block",
-                          marginInlineStart: "10px",
-                          backgroundColor: "black",
-                          color: "white",
-                          zIndex: 99,
-                        }}
-                        onClick={() => {
-                          console.log(product);
-                          seteditProduct(product);
-                        }}
-                        type="button"
-                        className="btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#DeleteProducts"
-                      >
-                        <CiTrash />
-                      </button>
+                      <div style={{ width: "290px" }} className="d-flex">
+                        <button
+                          style={{
+                            display: "block",
+                            marginInlineStart: "10px",
+                            backgroundColor: "black",
+                            color: "white",
+                            zIndex: 99,
+                          }}
+                          onClick={() => {
+                            console.log(product);
+                            seteditProduct(product);
+                          }}
+                          type="button"
+                          className="btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#EditeProductsModal"
+                        >
+                          <BiEdit />
+                        </button>
+                        <button
+                          style={{
+                            display: "block",
+                            marginInlineStart: "10px",
+                            backgroundColor: "black",
+                            color: "white",
+                            zIndex: 99,
+                          }}
+                          onClick={() => {
+                            console.log(product);
+                            seteditProduct(product);
+                          }}
+                          type="button"
+                          className="btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#DeleteProducts"
+                        >
+                          <CiTrash />
+                        </button>
                       </div>
                     </div>
                     <ProductCard

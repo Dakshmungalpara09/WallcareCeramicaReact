@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import GetPortno from "../GlobalVar";
-
+const ArgumentPass = {
+  
+}
 const GlobalVar = GetPortno();
 var pageno = 0;
 export const FetchProductsList = createAsyncThunk(
